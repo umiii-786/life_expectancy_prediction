@@ -1,0 +1,1 @@
+2026-02-06 19:15:47,700 - CRITICAL - Pipeline failed: 'float' object has no attribute 'get'
