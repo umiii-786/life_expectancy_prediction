@@ -52,3 +52,21 @@ stages:
       md5: ea2db1ab3f0d8f48306588e5988d703c.dir
       size: 417054
       nfiles: 2
+  feature_creation:
+    cmd: python -m src.features.build_features
+    deps:
+    - path: data/processed
+      hash: md5
+      md5: ea2db1ab3f0d8f48306588e5988d703c.dir
+      size: 417054
+      nfiles: 2
+    - path: src/features/build_features.py
+      hash: md5
+      md5: 8e9dba1ba80fe2f47dcd6c14d3e64cf3
+      size: 2975
+    outs:
+    - path: data/feature_engineering/feature_creation
+      hash: md5
+      md5: 0688ac24725ed0fed282da6e5a0dd72f.dir
+      size: 527333
+      nfiles: 2
