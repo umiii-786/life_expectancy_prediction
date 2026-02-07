@@ -14,3 +14,10 @@ stages:
     - src/data/data_preprocessing.py
     outs:
     - data/interim
+  outlier_handled:
+    cmd: python -m src.data.handle_outliers
+    deps:
+    - data/interim
+    - src/data/handle_outliers.py
+    outs:
+    - data/processed

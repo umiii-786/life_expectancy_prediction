@@ -34,3 +34,21 @@ stages:
       md5: a27b34b905b0894b3a9f46a2a6c09181.dir
       size: 441594
       nfiles: 2
+  outlier_handled:
+    cmd: python -m src.data.handle_outliers
+    deps:
+    - path: data/interim
+      hash: md5
+      md5: a27b34b905b0894b3a9f46a2a6c09181.dir
+      size: 441594
+      nfiles: 2
+    - path: src/data/handle_outliers.py
+      hash: md5
+      md5: c710977194b884283bc9807703bef7bb
+      size: 4089
+    outs:
+    - path: data/processed
+      hash: md5
+      md5: ea2db1ab3f0d8f48306588e5988d703c.dir
+      size: 417054
+      nfiles: 2
