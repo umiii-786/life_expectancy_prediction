@@ -5,8 +5,8 @@ stages:
     deps:
     - path: src/data/data_ingestion.py
       hash: md5
-      md5: ad07b54415179a16b8e520f56c8ac2da
-      size: 3065
+      md5: 1f0e5617f145f032775ddcfe6520f5e8
+      size: 3063
     params:
       params.yaml:
         data_ingestion.test_size: 0.2
@@ -91,3 +91,41 @@ stages:
       md5: c6ddbc11244ad51ed45f86d47277f84d.dir
       size: 415297
       nfiles: 2
+  model_building:
+    cmd: python -m src.model.build_model
+    deps:
+    - path: data/feature_engineering/feature_selection
+      hash: md5
+      md5: c6ddbc11244ad51ed45f86d47277f84d.dir
+      size: 415297
+      nfiles: 2
+    - path: src/model/build_model.py
+      hash: md5
+      md5: 48d674e0aa1356d16ae87fb09b1bf72a
+      size: 5131
+    params:
+      params.yaml:
+        rf_parameter.max_depth: 3
+        rf_parameter.n_estimators: 100
+    outs:
+    - path: models/
+      hash: md5
+      md5: 9622c3c20f2ac632a8f0132b89ed6119.dir
+      size: 146755
+      nfiles: 1
+  model_testing:
+    cmd: python -m src.model.predict_model
+    deps:
+    - path: data/feature_engineering/feature_selection
+      hash: md5
+      md5: c6ddbc11244ad51ed45f86d47277f84d.dir
+      size: 415297
+      nfiles: 2
+    - path: models/rf.pkl
+      hash: md5
+      md5: 3e38b20a02d45af9c91f9b5d605c52c0
+      size: 146755
+    - path: src/model/predict_model.py
+      hash: md5
+      md5: d05ff4704fd4f40bb919f2351527f94a
+      size: 3997

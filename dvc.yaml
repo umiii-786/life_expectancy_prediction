@@ -37,3 +37,24 @@ stages:
     - feature_selection.threshold
     outs:
     - data/feature_engineering/feature_selection
+  model_building:
+    cmd: python -m src.model.build_model
+    deps:
+    - data/feature_engineering/feature_selection
+    - src/model/build_model.py
+    params:
+    - rf_parameter.n_estimators
+    - rf_parameter.max_depth
+    outs:
+    - models/
+  model_testing:
+    cmd: python -m src.model.predict_model
+    deps:
+    - data/feature_engineering/feature_selection
+    - src/model/predict_model.py
+    - models/rf.pkl
+metrics:
+- dvclive/metrics.json
+plots:
+- dvclive/plots/metrics:
+    x: step

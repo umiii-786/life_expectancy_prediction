@@ -56,7 +56,6 @@ def load_data(data_path: str) -> pd.DataFrame:
 def save_data(path: str, train_ds: pd.DataFrame, test_ds: pd.DataFrame) -> None:
     try:
         os.makedirs(path, exist_ok=True)
-
         train_path = os.path.join(path, "train.csv")
         test_path = os.path.join(path, "test.csv")
 
