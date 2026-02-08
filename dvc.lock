@@ -70,3 +70,24 @@ stages:
       md5: 0688ac24725ed0fed282da6e5a0dd72f.dir
       size: 527333
       nfiles: 2
+  feature_selection:
+    cmd: python -m src.features.select_features
+    deps:
+    - path: data/feature_engineering/feature_creation
+      hash: md5
+      md5: 0688ac24725ed0fed282da6e5a0dd72f.dir
+      size: 527333
+      nfiles: 2
+    - path: src/features/select_features.py
+      hash: md5
+      md5: a8e3234b2f00604dd820b674533608e4
+      size: 5669
+    params:
+      params.yaml:
+        feature_selection.threshold: 0.75
+    outs:
+    - path: data/feature_engineering/feature_selection
+      hash: md5
+      md5: c6ddbc11244ad51ed45f86d47277f84d.dir
+      size: 415297
+      nfiles: 2

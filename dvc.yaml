@@ -28,3 +28,12 @@ stages:
     - src/features/build_features.py
     outs:
     - data/feature_engineering/feature_creation
+  feature_selection:
+    cmd: python -m src.features.select_features
+    deps:
+    - data/feature_engineering/feature_creation
+    - src/features/select_features.py
+    params:
+    - feature_selection.threshold
+    outs:
+    - data/feature_engineering/feature_selection

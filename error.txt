@@ -1,1 +1,3 @@
 2026-02-06 19:15:47,700 - CRITICAL - Pipeline failed: 'float' object has no attribute 'get'
+2026-02-08 17:57:44,867 - ERROR - YAML file not found: params.yml
+2026-02-08 17:57:44,868 - ERROR - Error loading YAML file: No active exception to reraise
